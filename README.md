@@ -19,6 +19,10 @@ This folder provides the Devops-Challenge and modules for Infrastructure as Code
 3. Terraform
     You would require to install Terraform to be able to build cloud infrastructure.
 
+
+## Required Infrastracture
+![result of get scv](Results/GCPproject-Infra.png "Output")
+
 ## How to Use
 
 1. Set up GCP
