@@ -1,0 +1,29 @@
+                                                               
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gcpfinaltask-deployment
+  labels:
+    app: python
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: python
+  template:
+    metadata:
+      labels:
+        app: python
+    spec:
+      containers:
+      - name: gcp-final-python
+        image: us.gcr.io/abdelrahman-ahmed-iti-project/abdelrahman20299/python:v1.0
+        ports:
+        - containerPort: 8000
+        envFrom:
+        - configMapRef:
+           name: python-env
+      - name: redis
+        image: redis
+        ports:
+        - containerPort: 6379
