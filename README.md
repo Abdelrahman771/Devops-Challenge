@@ -19,8 +19,6 @@ This folder provides the Devops-Challenge and modules for Infrastructure as Code
 3. Terraform
     You would require to install Terraform to be able to build cloud infrastructure.
 
-4. Git
-
 ## How to Use
 
 1. Set up GCP
@@ -43,7 +41,7 @@ This folder provides the Devops-Challenge and modules for Infrastructure as Code
       - Leave the "Key Type" as JSON.
       - Click "Create" to create the key and save the key file to your system.
   
-2. Clone the repository from <https://github.com/ShroukRamadan/Devops-Challenge-01>
+2. Clone the repository from <https://github.com/Abdelrahman771/Devops-Challenge-GCP>
 
     Note: Don't forget to copy credintial key to this directory and chenge it in code and also change project id with project id you created
 
@@ -61,17 +59,15 @@ This folder provides the Devops-Challenge and modules for Infrastructure as Code
    NOTE: Dockerfile will be found in  Devops-Challenge-Demo-Code folder TO BUILD IMAGES
    
     ``` bash
-    docker pull redis:6.0.9-alpine
-    # tag should be hostname/projectID/imgName
-    docker tag redis:6.0.9-alpine us.gcr.io/abdelrahman-ahmed-iti-project/redis
-    docker build . -t us.gcr.io/abdelrahman-ahmed-iti-project/python-img:v1.0 
+    sudo docker build  . -t abdelrahman20299/python:v1.0
     ```
 
     TO PUSH IMAGES TO GCR
 
     ```bash
+    sudo docker tag abdelrahman20299/python:v1.0 us.gcr.io/abdelrahman-ahmed-iti-project/abdelrahman20299/python:v1.0
     gcloud auth configure-docker
-    gcloud docker -- push us.gcr.io/abdelrahman-ahmed-iti-project/redis:latest
+    gcloud docker -- push us.gcr.io/abdelrahman-ahmed-iti-project/abdelrahman20299/python:v1.0
     ```
 
 4. SSH into the private VM and connect to cluster
@@ -80,7 +76,7 @@ This folder provides the Devops-Challenge and modules for Infrastructure as Code
      gcloud auth login
      sudo apt-get install google-cloud-sdk-gke-gcloud-auth-plugin
      gcloud components install kubectl
-     gcloud container clusters get-credentials [cluster-name] --zone [cluster-zone] --project[project-id]
+     gcloud container clusters get-credentials [cluster-name] --region [cluster-region] --project[project-id]
     ```
 
 5. Deploy our python application using K8s private cluster
