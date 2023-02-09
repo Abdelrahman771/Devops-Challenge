@@ -1,7 +1,7 @@
 resource "google_service_account" "default" {
   account_id   = "service-account-id"
   display_name = "Service Account"
-  project = "abdelrahman-ahmed-iti-project"
+  project = var.project_id
 }
 
 
@@ -10,13 +10,13 @@ resource "google_project_iam_member" "roles-to-sa" {
   #multiple-google-cloud-iam-roles-to-a-service-account-via-terrafor
   role =  "roles/storage.objectViewer"
   member = "serviceAccount:${google_service_account.default.email}"
-  project = "abdelrahman-ahmed-iti-project"
+  project = var.project_id
 }
 
 
 resource "google_container_cluster" "primary" {
   name     = "my-gke-cluster"
-  location = "us-central1"
+  location = var.location
   network = var.VPC_NAME
   subnetwork = var.Restricted_SubNAME
 
@@ -51,13 +51,13 @@ private_cluster_config {
 
 resource "google_container_node_pool" "primary_preemptible_nodes" {
   name       = "my-node-pool"
-  location   = "us-central1"
+  location   = var.location
   cluster    = google_container_cluster.primary.name
   node_count = 1
 
   node_config {
     preemptible  = true
-    machine_type = "e2-micro"
+    machine_type = var.machine_type
 
     # Google recommends custom service accounts that have cloud-platform scope and permissions granted via IAM Roles.
     service_account = google_service_account.default.email

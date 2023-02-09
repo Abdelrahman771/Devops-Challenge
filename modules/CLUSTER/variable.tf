@@ -9,6 +9,19 @@ variable "Managment_SubNAME" {
 variable "Restricted_SubNAME" {
   type = string
 }
+
+variable "location" {
+  type = string
+}
+
+variable "project_id" {
+  type = string
+}
+
+variable "machine_type" {
+  type = string
+}
+
 variable "authorized_cidr_blocks" {
   
 }

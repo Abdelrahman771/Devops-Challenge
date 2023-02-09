@@ -12,3 +12,17 @@ variable "VPC_NAME" {
 variable "Managment_SubNAME" {
   type = string
 }
+
+
+variable "image" {
+  type = string
+}
+
+variable "machine_type" {
+  type = string
+}
+
+variable "zone" {
+  type = string
+}
+

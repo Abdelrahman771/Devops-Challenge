@@ -1,11 +1,11 @@
 
 resource "google_compute_instance" "VM" {
   name         = "vinstance"
-  machine_type = "e2-micro"
-  zone         = "us-central1-a"
+  machine_type = var.machine_type
+  zone         = var.zone
   boot_disk {
     initialize_params {
-      image = "debian-cloud/debian-11"
+      image = var.image
       labels = {
         my_label = "value"
       }
