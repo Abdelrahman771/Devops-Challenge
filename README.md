@@ -1,12 +1,12 @@
 # GCP-project
 
-This folder provides the Devops-Challenge-Demo-Code and IaC-Terraform for Infrastructure as Code Using Terraform and K8S for yml files for kubernetes cluster deployments and services.
+This folder provides the Devops-Challenge and modules for Infrastructure as Code Using Terraform and k8s for yml files for kubernetes cluster deployments and services.
 
 ## This folder contains the following folders
 
-1. Devops-Challenge-Demo-Code - It contains python code.
-2. IaC-Terraform - It contains the essential files (.tf).
-3. K8S - It contains the essential files (.yml).
+1. Devops-Challenge - It contains python code.
+2. modules - It contains the essential files (.tf).
+3. k8s - It contains the essential files (.yml).
 
 ## Dependencies
 
@@ -44,8 +44,6 @@ This folder provides the Devops-Challenge-Demo-Code and IaC-Terraform for Infras
       - Click "Create" to create the key and save the key file to your system.
   
 2. Clone the repository from <https://github.com/ShroukRamadan/Devops-Challenge-01>
-
-    ``` cd ./IaC-Terraform ```
 
     Note: Don't forget to copy credintial key to this directory and chenge it in code and also change project id with project id you created
 
